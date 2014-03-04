@@ -15,9 +15,9 @@ Test.prototype._req = function (method, path, data, next) {
   }
   request({
     method: method,
-    uri: rootAPI + path,
+    uri: this._rootAPI + path,
     json: data,
-    headers: headers
+    headers: this._headers
   }, next)
 }
 
@@ -35,6 +35,13 @@ Test.prototype.put = function (path, data, next) {
 
 Test.prototype.del = function (path, data, next) {
   this._req('DELETE', path, data, next)
+}
+
+Test.prototype.auth = function (res) {
+  res.headers['set-cookie'].filter(function(cookie) {
+    if (!!~cookie.indexOf('connect.sid'))
+      this.headers['Cookie'] = cookie
+  })
 }
 
 module.exports = Test
