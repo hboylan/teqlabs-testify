@@ -1,0 +1,14 @@
+{
+  "name": "teqlabs-testify",
+  "version": "0.0.1",
+  "private": false,
+  "readme": "README.md",
+  "main": "index.js",
+  "dependencies": {
+    "request": "~2.34.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:hboylan/teqlabs-testify.git"
+  }
+}
