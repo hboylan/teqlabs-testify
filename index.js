@@ -6,6 +6,8 @@ function Test (host, port, secure) {
   this.headers = {
     'Content-Type': 'application/json'
   }
+  console.log('Testing '+this._rootAPI)
+  console.log()
 }
 
 Test.prototype._req = function (method, path, data, next) {
@@ -13,12 +15,20 @@ Test.prototype._req = function (method, path, data, next) {
     next = data
     data = {}
   }
+  console.info(method.toUpperCase(), path)
+  console.info(JSON.stringify(data, null, 2))
   request({
     method: method,
     uri: this._rootAPI + path,
     json: data,
-    headers: this._headers
-  }, next)
+    headers: this.headers
+  }, function (err, res, body) {
+    if(err) console.error(err)
+    console.log('RESPONSE:', '['+res.statusCode+']')
+    console.log(JSON.stringify(body, null, 2) || null)
+    console.log()
+    next(res, body)
+  })
 }
 
 Test.prototype.get = function (path, next) {
@@ -38,9 +48,10 @@ Test.prototype.del = function (path, data, next) {
 }
 
 Test.prototype.auth = function (res) {
+  var headers = this.headers
   res.headers['set-cookie'].filter(function(cookie) {
     if (!!~cookie.indexOf('connect.sid'))
-      this.headers['Cookie'] = cookie
+      headers['Cookie'] = cookie
   })
 }
 

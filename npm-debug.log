@@ -1,0 +1,140 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@1.2.32
+3 info using node@v0.10.12
+4 verbose publish [ '.' ]
+5 verbose read json /Users/HJB/Sites/teqlabs-testify/package.json
+6 verbose cache add [ '.', null ]
+7 verbose cache add name=undefined spec="." args=[".",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: '.',
+8 verbose parsed url   path: '.',
+8 verbose parsed url   href: '.' }
+9 silly lockFile 3a52ce78- .
+10 verbose lock . /Users/HJB/.npm/3a52ce78-.lock
+11 verbose read json package.json
+12 verbose tar pack [ '/var/folders/4y/6b_rc37n4w51y5bcxbmhkwwc0000gn/T/npm-64725/1395242263253-0.9360748326871544/tmp.tgz',
+12 verbose tar pack   '.' ]
+13 verbose tarball /var/folders/4y/6b_rc37n4w51y5bcxbmhkwwc0000gn/T/npm-64725/1395242263253-0.9360748326871544/tmp.tgz
+14 verbose folder .
+15 info prepublish teqlabs-testify@0.1.1
+16 silly lockFile 1f1177db-tar tar://.
+17 verbose lock tar://. /Users/HJB/.npm/1f1177db-tar.lock
+18 silly lockFile 6819bcd9-63253-0-9360748326871544-tmp-tgz tar:///var/folders/4y/6b_rc37n4w51y5bcxbmhkwwc0000gn/T/npm-64725/1395242263253-0.9360748326871544/tmp.tgz
+19 verbose lock tar:///var/folders/4y/6b_rc37n4w51y5bcxbmhkwwc0000gn/T/npm-64725/1395242263253-0.9360748326871544/tmp.tgz /Users/HJB/.npm/6819bcd9-63253-0-9360748326871544-tmp-tgz.lock
+20 silly lockFile 1f1177db-tar tar://.
+21 silly lockFile 1f1177db-tar tar://.
+22 silly lockFile 6819bcd9-63253-0-9360748326871544-tmp-tgz tar:///var/folders/4y/6b_rc37n4w51y5bcxbmhkwwc0000gn/T/npm-64725/1395242263253-0.9360748326871544/tmp.tgz
+23 silly lockFile 6819bcd9-63253-0-9360748326871544-tmp-tgz tar:///var/folders/4y/6b_rc37n4w51y5bcxbmhkwwc0000gn/T/npm-64725/1395242263253-0.9360748326871544/tmp.tgz
+24 verbose tar unpack /var/folders/4y/6b_rc37n4w51y5bcxbmhkwwc0000gn/T/npm-64725/1395242263253-0.9360748326871544/tmp.tgz
+25 silly lockFile e2c193dc-63253-0-9360748326871544-package tar:///var/folders/4y/6b_rc37n4w51y5bcxbmhkwwc0000gn/T/npm-64725/1395242263253-0.9360748326871544/package
+26 verbose lock tar:///var/folders/4y/6b_rc37n4w51y5bcxbmhkwwc0000gn/T/npm-64725/1395242263253-0.9360748326871544/package /Users/HJB/.npm/e2c193dc-63253-0-9360748326871544-package.lock
+27 silly lockFile 6819bcd9-63253-0-9360748326871544-tmp-tgz tar:///var/folders/4y/6b_rc37n4w51y5bcxbmhkwwc0000gn/T/npm-64725/1395242263253-0.9360748326871544/tmp.tgz
+28 verbose lock tar:///var/folders/4y/6b_rc37n4w51y5bcxbmhkwwc0000gn/T/npm-64725/1395242263253-0.9360748326871544/tmp.tgz /Users/HJB/.npm/6819bcd9-63253-0-9360748326871544-tmp-tgz.lock
+29 silly gunzTarPerm modes [ '755', '644' ]
+30 silly gunzTarPerm extractEntry package.json
+31 silly gunzTarPerm extractEntry .npmignore
+32 silly gunzTarPerm extractEntry README.md
+33 silly gunzTarPerm extractEntry index.js
+34 verbose read json /var/folders/4y/6b_rc37n4w51y5bcxbmhkwwc0000gn/T/npm-64725/1395242263253-0.9360748326871544/package/package.json
+35 silly lockFile e2c193dc-63253-0-9360748326871544-package tar:///var/folders/4y/6b_rc37n4w51y5bcxbmhkwwc0000gn/T/npm-64725/1395242263253-0.9360748326871544/package
+36 silly lockFile e2c193dc-63253-0-9360748326871544-package tar:///var/folders/4y/6b_rc37n4w51y5bcxbmhkwwc0000gn/T/npm-64725/1395242263253-0.9360748326871544/package
+37 silly lockFile 6819bcd9-63253-0-9360748326871544-tmp-tgz tar:///var/folders/4y/6b_rc37n4w51y5bcxbmhkwwc0000gn/T/npm-64725/1395242263253-0.9360748326871544/tmp.tgz
+38 silly lockFile 6819bcd9-63253-0-9360748326871544-tmp-tgz tar:///var/folders/4y/6b_rc37n4w51y5bcxbmhkwwc0000gn/T/npm-64725/1395242263253-0.9360748326871544/tmp.tgz
+39 verbose from cache /var/folders/4y/6b_rc37n4w51y5bcxbmhkwwc0000gn/T/npm-64725/1395242263253-0.9360748326871544/package/package.json
+40 verbose tar pack [ '/Users/HJB/.npm/teqlabs-testify/0.1.1/package.tgz',
+40 verbose tar pack   '/var/folders/4y/6b_rc37n4w51y5bcxbmhkwwc0000gn/T/npm-64725/1395242263253-0.9360748326871544/package' ]
+41 verbose tarball /Users/HJB/.npm/teqlabs-testify/0.1.1/package.tgz
+42 verbose folder /var/folders/4y/6b_rc37n4w51y5bcxbmhkwwc0000gn/T/npm-64725/1395242263253-0.9360748326871544/package
+43 silly lockFile e2c193dc-63253-0-9360748326871544-package tar:///var/folders/4y/6b_rc37n4w51y5bcxbmhkwwc0000gn/T/npm-64725/1395242263253-0.9360748326871544/package
+44 verbose lock tar:///var/folders/4y/6b_rc37n4w51y5bcxbmhkwwc0000gn/T/npm-64725/1395242263253-0.9360748326871544/package /Users/HJB/.npm/e2c193dc-63253-0-9360748326871544-package.lock
+45 silly lockFile 0ff60b6b-eqlabs-testify-0-1-1-package-tgz tar:///Users/HJB/.npm/teqlabs-testify/0.1.1/package.tgz
+46 verbose lock tar:///Users/HJB/.npm/teqlabs-testify/0.1.1/package.tgz /Users/HJB/.npm/0ff60b6b-eqlabs-testify-0-1-1-package-tgz.lock
+47 silly lockFile e2c193dc-63253-0-9360748326871544-package tar:///var/folders/4y/6b_rc37n4w51y5bcxbmhkwwc0000gn/T/npm-64725/1395242263253-0.9360748326871544/package
+48 silly lockFile e2c193dc-63253-0-9360748326871544-package tar:///var/folders/4y/6b_rc37n4w51y5bcxbmhkwwc0000gn/T/npm-64725/1395242263253-0.9360748326871544/package
+49 silly lockFile 0ff60b6b-eqlabs-testify-0-1-1-package-tgz tar:///Users/HJB/.npm/teqlabs-testify/0.1.1/package.tgz
+50 silly lockFile 0ff60b6b-eqlabs-testify-0-1-1-package-tgz tar:///Users/HJB/.npm/teqlabs-testify/0.1.1/package.tgz
+51 silly lockFile fda31553-pm-teqlabs-testify-0-1-1-package /Users/HJB/.npm/teqlabs-testify/0.1.1/package
+52 verbose lock /Users/HJB/.npm/teqlabs-testify/0.1.1/package /Users/HJB/.npm/fda31553-pm-teqlabs-testify-0-1-1-package.lock
+53 silly lockFile fda31553-pm-teqlabs-testify-0-1-1-package /Users/HJB/.npm/teqlabs-testify/0.1.1/package
+54 silly lockFile fda31553-pm-teqlabs-testify-0-1-1-package /Users/HJB/.npm/teqlabs-testify/0.1.1/package
+55 verbose tar unpack /Users/HJB/.npm/teqlabs-testify/0.1.1/package.tgz
+56 silly lockFile d44c3c92-pm-teqlabs-testify-0-1-1-package tar:///Users/HJB/.npm/teqlabs-testify/0.1.1/package
+57 verbose lock tar:///Users/HJB/.npm/teqlabs-testify/0.1.1/package /Users/HJB/.npm/d44c3c92-pm-teqlabs-testify-0-1-1-package.lock
+58 silly lockFile 0ff60b6b-eqlabs-testify-0-1-1-package-tgz tar:///Users/HJB/.npm/teqlabs-testify/0.1.1/package.tgz
+59 verbose lock tar:///Users/HJB/.npm/teqlabs-testify/0.1.1/package.tgz /Users/HJB/.npm/0ff60b6b-eqlabs-testify-0-1-1-package-tgz.lock
+60 silly gunzTarPerm modes [ '755', '644' ]
+61 silly gunzTarPerm extractEntry package.json
+62 silly gunzTarPerm extractEntry .npmignore
+63 silly gunzTarPerm extractEntry README.md
+64 silly gunzTarPerm extractEntry index.js
+65 verbose read json /Users/HJB/.npm/teqlabs-testify/0.1.1/package/package.json
+66 silly lockFile d44c3c92-pm-teqlabs-testify-0-1-1-package tar:///Users/HJB/.npm/teqlabs-testify/0.1.1/package
+67 silly lockFile d44c3c92-pm-teqlabs-testify-0-1-1-package tar:///Users/HJB/.npm/teqlabs-testify/0.1.1/package
+68 silly lockFile 0ff60b6b-eqlabs-testify-0-1-1-package-tgz tar:///Users/HJB/.npm/teqlabs-testify/0.1.1/package.tgz
+69 silly lockFile 0ff60b6b-eqlabs-testify-0-1-1-package-tgz tar:///Users/HJB/.npm/teqlabs-testify/0.1.1/package.tgz
+70 verbose from cache /Users/HJB/.npm/teqlabs-testify/0.1.1/package/package.json
+71 verbose chmod /Users/HJB/.npm/teqlabs-testify/0.1.1/package.tgz 644
+72 verbose chown /Users/HJB/.npm/teqlabs-testify/0.1.1/package.tgz [ 501, 20 ]
+73 silly lockFile 3a52ce78- .
+74 silly lockFile 3a52ce78- .
+75 silly publish { name: 'teqlabs-testify',
+75 silly publish   version: '0.1.1',
+75 silly publish   private: false,
+75 silly publish   readme: 'README.md',
+75 silly publish   main: 'index.js',
+75 silly publish   dependencies: { request: '~2.34.0' },
+75 silly publish   repository:
+75 silly publish    { type: 'git',
+75 silly publish      url: 'git@bitbucket.org:hboylan/teqlabs-testify.git' },
+75 silly publish   description: 'README.md',
+75 silly publish   _id: 'teqlabs-testify@0.1.1',
+75 silly publish   dist: { shasum: '385d9d6bc36d35f41193bb3aa8bcce276ec76f9f' },
+75 silly publish   _from: '.' }
+76 verbose url raw teqlabs-testify
+77 verbose url resolving [ 'https://registry.npmjs.org/', './teqlabs-testify' ]
+78 verbose url resolved https://registry.npmjs.org/teqlabs-testify
+79 info trying registry request attempt 1 at 11:17:43
+80 http PUT https://registry.npmjs.org/teqlabs-testify
+81 http 403 https://registry.npmjs.org/teqlabs-testify
+82 info trying registry request attempt 1 at 11:17:43
+83 http PUT https://registry.npmjs.org/teqlabs-testify
+84 http 201 https://registry.npmjs.org/teqlabs-testify
+85 verbose url raw teqlabs-testify
+86 verbose url resolving [ 'https://registry.npmjs.org/', './teqlabs-testify' ]
+87 verbose url resolved https://registry.npmjs.org/teqlabs-testify
+88 info trying registry request attempt 1 at 11:17:44
+89 http GET https://registry.npmjs.org/teqlabs-testify
+90 http 200 https://registry.npmjs.org/teqlabs-testify
+91 verbose uploading [ 'teqlabs-testify/-/teqlabs-testify-0.1.1.tgz/-rev/8-c7d950d0eaa3f632a3e56816bd24bdef',
+91 verbose uploading   '/Users/HJB/.npm/teqlabs-testify/0.1.1/package.tgz' ]
+92 verbose url raw teqlabs-testify/-/teqlabs-testify-0.1.1.tgz/-rev/8-c7d950d0eaa3f632a3e56816bd24bdef
+93 verbose url resolving [ 'https://registry.npmjs.org/',
+93 verbose url resolving   './teqlabs-testify/-/teqlabs-testify-0.1.1.tgz/-rev/8-c7d950d0eaa3f632a3e56816bd24bdef' ]
+94 verbose url resolved https://registry.npmjs.org/teqlabs-testify/-/teqlabs-testify-0.1.1.tgz/-rev/8-c7d950d0eaa3f632a3e56816bd24bdef
+95 info trying registry request attempt 1 at 11:17:44
+96 http PUT https://registry.npmjs.org/teqlabs-testify/-/teqlabs-testify-0.1.1.tgz/-rev/8-c7d950d0eaa3f632a3e56816bd24bdef
+97 http 409 https://registry.npmjs.org/teqlabs-testify/-/teqlabs-testify-0.1.1.tgz/-rev/8-c7d950d0eaa3f632a3e56816bd24bdef
+98 error publish fail Cannot publish over existing version.
+98 error publish fail Update the 'version' field in package.json and try again.
+98 error publish fail
+98 error publish fail If the previous version was published in error, see:
+98 error publish fail     npm help unpublish
+98 error publish fail
+98 error publish fail To automatically increment version numbers, see:
+98 error publish fail     npm help version
+99 error System Darwin 13.1.0
+100 error command "node" "/usr/local/bin/npm" "publish"
+101 error cwd /Users/HJB/Sites/teqlabs-testify
+102 error node -v v0.10.12
+103 error npm -v 1.2.32
+104 error code EPUBLISHCONFLICT
+105 verbose exit [ 1, true ]
