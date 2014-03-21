@@ -3,7 +3,7 @@ var request = require('request')
 function Test (host, port, secure) {
   this._rootAPI = secure? 'https://' : 'http://'
   this._rootAPI += host + ':' + (port || 80)
-  this.headers = {
+  this._headers = {
     'Content-Type': 'application/json'
   }
   console.log('Testing '+this._rootAPI)
@@ -21,7 +21,7 @@ Test.prototype._req = function (method, path, data, next) {
     method: method,
     uri: this._rootAPI + path,
     json: data,
-    headers: this.headers
+    headers: this._headers
   }, function (err, res, body) {
     if(err) console.error(err)
     console.log('RESPONSE:', '['+res.statusCode+']')
@@ -48,7 +48,7 @@ Test.prototype.del = function (path, data, next) {
 }
 
 Test.prototype.cookie = function (name, res) {
-  var headers = this.headers
+  var headers = this._headers
   res.headers['set-cookie'].filter(function(cookie) {
     if (!!~cookie.indexOf(name))
       headers['Cookie'] = cookie
