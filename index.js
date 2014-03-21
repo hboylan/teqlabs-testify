@@ -47,10 +47,10 @@ Test.prototype.del = function (path, data, next) {
   this._req('DELETE', path, data, next)
 }
 
-Test.prototype.auth = function (res) {
+Test.prototype.cookie = function (name, res) {
   var headers = this.headers
   res.headers['set-cookie'].filter(function(cookie) {
-    if (!!~cookie.indexOf('connect.sid'))
+    if (!!~cookie.indexOf(name))
       headers['Cookie'] = cookie
   })
 }
