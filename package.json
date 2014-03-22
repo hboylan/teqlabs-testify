@@ -1,14 +1,28 @@
 {
   "name": "teqlabs-testify",
-  "version": "0.2.0",
-  "private": false,
-  "readme": "README.md",
+  "version": "0.3.0",
+  "description": "Test API routes and store cookies using npm request.",
   "main": "index.js",
+  "scripts": {
+    "test": "clear;npm install;cd test;npm install;node server.js;cd ..;"
+  },
   "dependencies": {
-    "request": "~2.34.0"
+    "request": "*"
   },
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:hboylan/teqlabs-testify.git"
+    "url": "git://github.com/hboylan/teqlabs-testify"
+  },
+  "keywords": [
+    "api",
+    "test",
+    "request",
+    "expressjs",
+    "cookie"
+  ],
+  "author": "Hugh Boylan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hboylan/teqlabs-testify/issues"
   }
 }

@@ -55,4 +55,6 @@ Test.prototype.cookie = function (name, res) {
   })
 }
 
-module.exports = Test
+module.exports = function (host, port, secure) {
+  return new Test(host, port, secure)
+}

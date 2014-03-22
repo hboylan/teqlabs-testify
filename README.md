@@ -28,7 +28,7 @@ api.get('/users', function (res, users) {
   // etc...
 })
 ```
-```json
+```javascript
 GET /users
 {}
 RESPONSE: [200]
@@ -48,7 +48,7 @@ api.post('/user', { email:'bluehugh2@gmail.com', name:'Hugh Boylan', password:'p
   assert.equal(res.statusCode, 200)
 })
 ```
-```json
+```javascript
 POST /user
 {
   "email": "bluehugh2@gmail.com",
@@ -71,7 +71,7 @@ api.put('/user/532b95856006dd7f10000003', { color:"blue" }, function (res, user)
   assert.equal(user.color, 'blue')
 })
 ```
-```json
+```javascript
 PUT /user/532b95856006dd7f10000003
 {
   "color": "blue"
@@ -95,7 +95,7 @@ api.del('/user/532b95856006dd7f10000003', { password:'password1' }, function (re
   assert.equal(body, null)
 })
 ```
-```json
+```javascript
 PUT /user/532b95856006dd7f10000003
 {
   "color": "blue"
@@ -121,7 +121,7 @@ api.post('/login', { email:'bluehugh2@gmail.com', password:'password1' }, functi
   })
 })
 ```
-```json
+```javascript
 POST /admin/login
 {
   "email": "bluehugh2@gmail.com",
