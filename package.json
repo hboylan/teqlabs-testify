@@ -1,6 +1,6 @@
 {
   "name": "teqlabs-testify",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Test API routes and store cookies using npm request.",
   "main": "index.js",
   "scripts": {

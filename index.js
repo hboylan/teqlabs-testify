@@ -9,6 +9,7 @@ function Test (host, port, secure) {
   console.log('Testing '+this._rootAPI)
   console.log()
 }
+module.exports = Test
 
 Test.prototype._req = function (method, path, data, next) {
   if(typeof data == 'function') {
@@ -53,8 +54,4 @@ Test.prototype.cookie = function (name, res) {
     if (!!~cookie.indexOf(name))
       headers['Cookie'] = cookie
   })
-}
-
-module.exports = function (host, port, secure) {
-  return new Test(host, port, secure)
 }
