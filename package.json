@@ -1,11 +1,8 @@
 {
   "name": "teqlabs-testify",
-  "version": "0.3.2",
-  "description": "Test API routes and store cookies using npm request.",
+  "version": "0.5.0",
+  "description": "Request wrapper to asynchronously test API endpoints with tokens and json data.",
   "main": "index.js",
-  "scripts": {
-    "test": "clear;npm install;cd test;npm install;node server.js;cd ..;"
-  },
   "dependencies": {
     "request": "^2.53.0"
   },

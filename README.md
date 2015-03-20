@@ -1,34 +1,23 @@
-# [Teqlabs](http://teqlabs.com)
-
 ## Setup
 ```javascript
 var Test = require('teqlabs-testify')
   , assert = require('assert')
 
-var api = new Test('localhost', 8000)
+// host, port, and https options
+var api = new Test('localhost', 8000, true)
 ```
 
-## Functions
+## Methods
 
- Method        | Action
--------------  | -----------------------------------------------------------------------------------------------------------
-`request()`    | [Request Wrapper](#request-wrapper)
-`get()`        | [GET Request](#get-request)
-`post()`       | [POST Request](https://bitbucket.org/hboylan/nomadicfitness-api#markdown-header-post-request)
-`put()`        | [PUT Request](https://bitbucket.org/hboylan/nomadicfitness-api#markdown-header-put-request)
-`del()`        | [DELETE Request](https://bitbucket.org/hboylan/nomadicfitness-api#markdown-header-delete-request)
-`cookie(name)` | [Set Cookie](https://bitbucket.org/hboylan/nomadicfitness-api#markdown-header-set-cookie)
+ Method                       | Action
+----------------------------  | -----------------------------------------------------------------------------------------------------------
+`api.get(path, next)`         | [GET Request](#get-request)
+`api.post(path, json, next)`  | [POST Request](#post-request)
+`api.put(path, json, next)`   | [PUT Request](#put-request)
+`api.del(path, json, next)`   | [DELETE Request](#delete-request)
+`api.bearer(token)`           | [Set Bearer](#set-bearer)
+`api.header(key, val)`        | [Set Header](#set-header)
 
-- - -
-
-# Request Wrapper
-```javascript
-api.get('/users', function (res, users) {
-  assert.equal(res.statusCode, 200)
-  assert.equal(users[0].role, 'client')
-  // etc...
-})
-```
 
 - - -
 
@@ -41,7 +30,7 @@ api.get('/users', function (res, users) {
 })
 ```
 ```javascript
-GET /users
+GET https://localhost:8000/users
 {}
 RESPONSE: [200]
 [
@@ -56,15 +45,15 @@ RESPONSE: [200]
 
 # POST Request
 ```javascript
-api.post('/user', { email:'bluehugh2@gmail.com', name:'Hugh Boylan', password:'password1' }, function (res, user) {
+api.post('/users/auth', { email:'bluehugh2@gmail.com', password:'password1' }, function (res, user) {
   assert.equal(res.statusCode, 200)
 })
 ```
 ```javascript
-POST /user
+POST https://localhost:8000/users/auth
 {
   "email": "bluehugh2@gmail.com",
-  "name": "Hugh Boylan"
+  "password": "password1"
 }
 RESPONSE: [200]
 {
@@ -78,22 +67,21 @@ RESPONSE: [200]
 
 # PUT Request
 ```javascript
-api.put('/user/532b95856006dd7f10000003', { color:"blue" }, function (res, user) {
+api.put('/users', { name:"hjboylan" }, function (res, user) {
   assert.equal(res.statusCode, 200)
-  assert.equal(user.color, 'blue')
+  assert.equal(user.name, "hjboylan")
 })
 ```
 ```javascript
-PUT /user/532b95856006dd7f10000003
+PUT https://localhost:8000/users
 {
-  "color": "blue"
+  "name": "hjboylan"
 }
 RESPONSE: [200]
 {
   "_id": "532b95856006dd7f10000003",
-  "color": "blue",
   "email": "bluehugh2@gmail.com",
-  "name": "Hugh Boylan",
+  "name": "hjboylan",
   "role": "client"
 }
 ```
@@ -102,58 +90,34 @@ RESPONSE: [200]
 
 # DELETE Request
 ```javascript
-api.del('/user/532b95856006dd7f10000003', { password:'password1' }, function (res, body) {
+api.del('/users', { name:'hjboylan', password:"password1" }, function (res, body) {
   assert.equal(res.statusCode, 200)
   assert.equal(body, null)
 })
 ```
 ```javascript
-PUT /user/532b95856006dd7f10000003
+DELETE https://localhost:8000/users
 {
-  "color": "blue"
-}
-RESPONSE: [200]
-{
-  "_id": "532b95856006dd7f10000003",
-  "color": "blue",
-  "email": "bluehugh2@gmail.com",
-  "name": "Hugh Boylan",
-  "role": "client"
-}
-```
-
-# Set Cookie
-```javascript
-api.post('/login', { email:'bluehugh2@gmail.com', password:'password1' }, function (res, user) {
-  api.cookie('connect.sid', res)
-
-  api.get('/auth', function (res, user) { // with expressjs, check req.session is valid
-    assert.equal(res.statusCode, 200)
-    assert.equal(user.email, 'bluehugh2@gmail.com')
-  })
-})
-```
-```javascript
-POST /admin/login
-{
-  "email": "bluehugh2@gmail.com",
+  "name": "hjboylan",
   "password": "password1"
 }
 RESPONSE: [200]
 {
   "_id": "532b95856006dd7f10000003",
   "email": "bluehugh2@gmail.com",
-  "name": "Hugh Boylan",
+  "name": "hjboylan",
   "role": "client"
 }
+```
 
-GET /auth
-{}
-RESPONSE: [200]
-{
-  "_id": "532b95856006dd7f10000003",
-  "email": "bluehugh2@gmail.com",
-  "name": "Hugh Boylan",
-  "role": "client"
-}
+# Set Bearer
+See [passport-http-bearer](https://www.npmjs.com/package/passport-http-bearer)
+```javascript
+api.bearer('youshallnotpass')
+```
+
+# Set Header
+Add a header for future requests
+```javascript
+api.header('X-Auth', 'therecanonlybeone')
 ```
