@@ -10,12 +10,11 @@ function Test (host, port, secure) {
     this._params.rejectUnhauthorized = false
     this._rootAPI += 's'
   }
-  this._rootAPI += '://' + opts.host + ':' + (opts.port || 80)
+  this._rootAPI += '://' + host + ':' + (port || 80)
   this._headers = {
     'Content-Type': 'application/json'
   }
-  console.log('Testing ' + this._rootAPI)
-  console.log()
+  console.log('Testing ' + this._rootAPI, '\n')
 }
 module.exports = Test
 
@@ -27,10 +26,9 @@ Test.prototype._req = function (opts, next) {
   opts.uri = this._rootAPI + opts.path
   for(p in this._params)
     opts[p] = this._params[p]
-
   console.info(opts.method.toUpperCase(), opts.uri)           // GET http://localhost:8000/
   console.info(JSON.stringify(opts.json, null, 2))            // { username: 'hjboylan' }
-  request(params, function (err, res, body) {
+  request(opts, function (err, res, body) {
     if(err) console.error(err)
     console.log('RESPONSE:', '[' + res.statusCode + ']')      // RESPONSE: [200]
     console.log(JSON.stringify(body, null, 2) || null, '\n')  // { message: 'you win!' }
@@ -55,7 +53,7 @@ Test.prototype.del = function (path, json, next) {
 }
 
 Test.prototype.bearer = function (token) {
-  this._req['Authorization'] = 'Bearer ' + token
+  this._headers['Authorization'] = 'Bearer ' + token
 }
 
 Test.prototype.header = function (key, val) {
