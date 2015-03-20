@@ -1,13 +1,13 @@
 {
   "name": "teqlabs-testify",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Test API routes and store cookies using npm request.",
   "main": "index.js",
   "scripts": {
     "test": "clear;npm install;cd test;npm install;node server.js;cd ..;"
   },
   "dependencies": {
-    "request": "*"
+    "request": "^2.53.0"
   },
   "repository": {
     "type": "git",
@@ -16,8 +16,10 @@
   "keywords": [
     "api",
     "test",
+    "express",
     "request",
-    "expressjs",
+    "token",
+    "bearer",
     "cookie"
   ],
   "author": "Hugh Boylan",
