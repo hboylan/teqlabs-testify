@@ -1,7 +1,7 @@
 {
   "name": "teqlabs-testify",
-  "version": "0.5.1",
-  "description": "Request wrapper to asynchronously test API endpoints with tokens and json data.",
+  "version": "0.5.2",
+  "description": "Request wrapper to asynchronously test API endpoints with token and json data.",
   "main": "index.js",
   "dependencies": {
     "request": "^2.53.0"

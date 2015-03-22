@@ -11,9 +11,7 @@ function Test (host, port, secure) {
     this._rootAPI += 's'
   }
   this._rootAPI += '://' + host + ':' + (port || 80)
-  this._headers = {
-    'Content-Type': 'application/json'
-  }
+  this._headers = {}
   console.log('Testing ' + this._rootAPI, '\n')
 }
 module.exports = Test
@@ -21,6 +19,7 @@ module.exports = Test
 Test.prototype._req = function (opts, next) {
 
   // request params
+  opts.json = true
   opts.method = opts.method ? opts.method : 'GET'
   opts.headers = this._headers
   opts.uri = this._rootAPI + opts.path
@@ -41,15 +40,15 @@ Test.prototype.get = function (path, next) {
 }
 
 Test.prototype.post = function (path, json, next) {
-  this._req({ method:'POST', path:path, json:json }, next)
+  this._req({ method:'POST', path:path, body:json }, next)
 }
 
 Test.prototype.put = function (path, json, next) {
-  this._req({ method:'PUT', path:path, json:json }, next)
+  this._req({ method:'PUT', path:path, body:json }, next)
 }
 
 Test.prototype.del = function (path, json, next) {
-  this._req({ method:'DELETE', path:path, json:json }, next)
+  this._req({ method:'DELETE', path:path, body:json }, next)
 }
 
 Test.prototype.bearer = function (token) {
