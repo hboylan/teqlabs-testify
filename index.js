@@ -1,60 +1,70 @@
-var request = require('request')
+var request = require('request');
 
-function Test (host, port, secure) {
-  this._params = {}
-  this._rootAPI = 'http'
-  if(secure){
+function Test (opts) {
+  this._params = opts.params || {};
+  this._headers = opts.headers || {};
+  this._host = opts.host || 'http://localhost:8000';
+  this._done = opts.done || function(body){};
+  this._print = opts.print;
+  if(opts.host.indexOf('https') > -1){
 
-    // allow testing with self-signed certificate
+    // test self-signed certificate
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-    this._params.rejectUnhauthorized = false
-    this._rootAPI += 's'
+    this._params.rejectUnhauthorized = false;
   }
-  this._rootAPI += '://' + host + ':' + (port || 80)
-  this._headers = {}
-  console.log('Testing ' + this._rootAPI, '\n')
+  _log('Testing: ' + this._host, '\n');
 }
-module.exports = Test
+function _log (data) {
+  if(this._print) console.info(data);
+}
+module.exports = Test;
 
 Test.prototype._req = function (opts, next) {
-
-  // request params
-  opts.json = true
-  opts.method = opts.method ? opts.method : 'GET'
-  opts.headers = this._headers
-  opts.uri = this._rootAPI + opts.path
+  var done = this._done;
+  opts.uri = this._host + opts.path;
+  opts.json = this._params.json || true;
+  opts.headers = this._headers;
+  opts.method = opts.method ? opts.method : 'GET';
   for(p in this._params)
-    opts[p] = this._params[p]
-  console.info(opts.method.toUpperCase(), opts.uri)           // GET http://localhost:8000/
-  console.info(JSON.stringify(opts.json, null, 2))            // { username: 'hjboylan' }
+    opts[p] = this._params[p];
+
+  _log(opts.method.toUpperCase(), opts.uri);           // GET http://localhost:8000/
+  _log(JSON.stringify(opts.body, null, 2));            // { username: 'hjboylan' }
   request(opts, function (err, res, body) {
-    if(err) console.error(err)
-    console.log('RESPONSE:', '[' + res.statusCode + ']')      // RESPONSE: [200]
-    console.log(JSON.stringify(body, null, 2) || null, '\n')  // { message: 'you win!' }
-    next(res, body)
+    if(err) {
+      _log(err);
+    }
+    _log('RESPONSE:', '[' + res.statusCode + ']');      // RESPONSE: [200]
+    _log(JSON.stringify(body, null, 2) || null, '\n');  // { message: 'you win!' }
+    done(body);
+    next(res, body);
   })
 }
 
 Test.prototype.get = function (path, next) {
-  this._req({ path:path }, next)
+  this._req({ path:path }, next);
 }
 
 Test.prototype.post = function (path, json, next) {
-  this._req({ method:'POST', path:path, body:json }, next)
+  this._req({ method:'POST', path:path, body:json }, next);
 }
 
 Test.prototype.put = function (path, json, next) {
-  this._req({ method:'PUT', path:path, body:json }, next)
+  this._req({ method:'PUT', path:path, body:json }, next);
 }
 
 Test.prototype.del = function (path, json, next) {
-  this._req({ method:'DELETE', path:path, body:json }, next)
+  this._req({ method:'DELETE', path:path, body:json }, next);
 }
 
-Test.prototype.bearer = function (token) {
-  this._headers['Authorization'] = 'Bearer ' + token
+Test.prototype.param = function (key, val) {
+  this._params[key] = val;
 }
 
 Test.prototype.header = function (key, val) {
-  this._headers[key] = val
+  this._headers[key] = val;
+}
+
+Test.prototype.bearer = function (token) {
+  this._headers['Authorization'] = 'Bearer ' + token;
 }
